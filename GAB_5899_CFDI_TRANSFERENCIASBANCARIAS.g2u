@@ -1,0 +1,869 @@
+Program.Sub.ScreenSU.Start
+Gui.F_BankInfo..Create
+Gui.F_BankInfo..Caption("Seleccion de Informacion Bancaria")
+Gui.F_BankInfo..Size(7545,3855)
+Gui.F_BankInfo..MinX(0)
+Gui.F_BankInfo..MinY(0)
+Gui.F_BankInfo..Position(0,0)
+Gui.F_BankInfo..BackColor(-2147483633)
+Gui.F_BankInfo..MousePointer(0)
+Gui.F_BankInfo..MousePointer(0)
+Gui.F_BankInfo..Event(UnLoad,F_BankInfo_UnLoad)
+Gui.F_BankInfo.lblCUENTA.Create(Label,"CUENTA",True,1935,255,0,855,1395,True,0,"Arial",10,-2147483633,0)
+Gui.F_BankInfo.lblCLABE.Create(Label,"CLABE",True,1935,255,0,855,1815,True,0,"Arial",10,-2147483633,0)
+Gui.F_BankInfo.txtCuenta.Create(TextBox,"",True,2595,300,0,3645,1305,True,0,"Arial",8,-2147483643,1)
+Gui.F_BankInfo.txtCuenta.NumericOnly(2)
+Gui.F_BankInfo.txtCuenta.MaxLength(10)
+Gui.F_BankInfo.txtClabe.Create(TextBox,"",True,2595,300,0,3645,1740,True,0,"Arial",8,-2147483643,1)
+Gui.F_BankInfo.txtClabe.NumericOnly(2)
+Gui.F_BankInfo.txtClabe.MaxLength(18)
+Gui.F_BankInfo.cmdSaveInfoBanco.Create(Button)
+Gui.F_BankInfo.cmdSaveInfoBanco.Size(1650,570)
+Gui.F_BankInfo.cmdSaveInfoBanco.Position(3420,2340)
+Gui.F_BankInfo.cmdSaveInfoBanco.Caption("GUARDAR BANCO")
+Gui.F_BankInfo.cmdSaveInfoBanco.Event(Click,cmdSaveInfoBanco_Click)
+Gui.F_BankInfo.lbl1.Create(Label,"Selecciona Informacion Bancaria",True,4230,255,0,915,465,True,0,"Arial",10,-2147483633,0)
+Gui.F_BankInfo.cmdNewBank.Create(Button)
+Gui.F_BankInfo.cmdNewBank.Size(1650,570)
+Gui.F_BankInfo.cmdNewBank.Position(75,2355)
+Gui.F_BankInfo.cmdNewBank.Caption("NUEVO BANCO")
+Gui.F_BankInfo.cmdNewBank.Event(Click,cmdNewBank_Click)
+Gui.F_BankInfo.cmdSaveBankPrin.Create(Button)
+Gui.F_BankInfo.cmdSaveBankPrin.Size(1770,570)
+Gui.F_BankInfo.cmdSaveBankPrin.Position(5100,2325)
+Gui.F_BankInfo.cmdSaveBankPrin.Caption("GUARDAR COMO BANCO PRINCIPAL")
+Gui.F_BankInfo.cmdSaveBankPrin.Event(Click,cmdSaveBankPrin_Click)
+Gui.F_BankInfo.lblOpBanco.Create(Label,"BANCO",True,1935,255,0,855,915,True,0,"Arial",10,-2147483633,0)
+Gui.F_BankInfo.txtOpBanco.Create(TextBox,"",True,2595,300,0,3645,825,True,0,"Arial",8,-2147483643,1)
+Gui.F_BankInfo.txtOpBanco.MaxLength(50)
+Gui.F_BankInfo.cmdOpBanco.Create(Button)
+Gui.F_BankInfo.cmdOpBanco.Size(375,375)
+Gui.F_BankInfo.cmdOpBanco.Position(6375,795)
+Gui.F_BankInfo.cmdOpBanco.Caption("^")
+Gui.F_BankInfo.cmdOpBanco.Event(Click,cmdBancoInfo_Click)
+Gui.F_BankInfo.cmdDELETE.Create(Button)
+Gui.F_BankInfo.cmdDELETE.Size(1650,570)
+Gui.F_BankInfo.cmdDELETE.Position(1785,2355)
+Gui.F_BankInfo.cmdDELETE.Caption("ELIMINAR BANCO")
+Gui.F_BankInfo.cmdDELETE.Event(Click,cmdDELETE_Click)
+Gui.F_Transferencias..Create
+Gui.F_Transferencias..Size(20160,7125)
+Gui.F_Transferencias..MinX(0)
+Gui.F_Transferencias..MinY(0)
+Gui.F_Transferencias..Position(0,0)
+Gui.F_Transferencias..BackColor(-2147483633)
+Gui.F_Transferencias..MousePointer(0)
+Gui.F_Transferencias..Event(UnLoad,F_Transferencias_UnLoad)
+Gui.F_Transferencias..Caption("Formato De Transferencias")
+Gui.F_Transferencias.lblDate.Create(Label,"FECHA",True,1935,255,0,1245,855,True,0,"Arial",9,-2147483633,0)
+Gui.F_Transferencias.chkTransEntreCuenta.Create(CheckBox)
+Gui.F_Transferencias.chkTransEntreCuenta.Size(3210,360)
+Gui.F_Transferencias.chkTransEntreCuenta.Position(10755,1005)
+Gui.F_Transferencias.chkTransEntreCuenta.Caption("Transferencia entre cuenta")
+Gui.F_Transferencias.chkTransEntreCuenta.FontSize(9)
+Gui.F_Transferencias.chkTransEntreCuenta.Event(Click,chkTransEntreCuenta_Click)
+Gui.F_Transferencias.chkPagoProv.Create(CheckBox)
+Gui.F_Transferencias.chkPagoProv.Size(2490,360)
+Gui.F_Transferencias.chkPagoProv.Position(10755,630)
+Gui.F_Transferencias.chkPagoProv.Caption("Pago a proveedor")
+Gui.F_Transferencias.chkPagoProv.FontSize(9)
+Gui.F_Transferencias.chkPagoProv.Event(Click,chkPagoProv_Click)
+Gui.F_Transferencias.cmdProvBrowser.Create(Button)
+Gui.F_Transferencias.cmdProvBrowser.Size(435,375)
+Gui.F_Transferencias.cmdProvBrowser.Position(2745,3000)
+Gui.F_Transferencias.cmdProvBrowser.Caption("^")
+Gui.F_Transferencias.cmdProvBrowser.Event(Click,cmdProvBrowser_Click)
+Gui.F_Transferencias.cmdProvBrowser.Visible(False)
+Gui.F_Transferencias.lblVendor.Create(Label,"PROVEEDOR",False,1365,300,0,90,3105,True,0,"Arial",9,-2147483633,0)
+Gui.F_Transferencias.txtProvNombre.Create(TextBox,"",False,3420,300,0,1710,3570,True,0,"Arial",8,-2147483643,1)
+Gui.F_Transferencias.txtProvNombre.Locked(True)
+Gui.F_Transferencias.lblInfoBancaria.Create(Label,"INFORMACION BANCARIA",False,5865,390,0,0,2640,True,2,"Arial",9,-2147483633,0)
+Gui.F_Transferencias.lblBANCO.Create(Label,"BANCO",False,1650,255,0,30,4155,True,0,"Arial",9,-2147483633,0)
+Gui.F_Transferencias.lblCUENTAINFOBANK.Create(Label,"CUENTA",False,1620,255,0,30,4680,True,0,"Arial",9,-2147483633,0)
+Gui.F_Transferencias.lblCLABE.Create(Label,"CLABE",False,1650,255,0,30,5175,True,0,"Arial",9,-2147483633,0)
+Gui.F_Transferencias.lblRef.Create(Label,"REFERENCIA",True,1590,210,0,4125,2025,True,0,"Arial",9,-2147483633,0)
+Gui.F_Transferencias.lblMonto.Create(Label,"MONTO",True,1470,255,0,480,2025,True,2,"Arial",9,-2147483633,0)
+Gui.F_Transferencias.lblPPMoneda.Create(Label,"MONEDA",False,1200,300,0,3195,3105,True,2,"Arial",9,-2147483633,0)
+Gui.F_Transferencias.txtBanco.Create(TextBox,"",False,3420,300,0,1710,4095,True,0,"Arial",8,-2147483643,1)
+Gui.F_Transferencias.txtCuenta.Create(TextBox,"",False,3420,300,0,1710,4590,True,0,"Arial",8,-2147483643,1)
+Gui.F_Transferencias.txtCuenta.MaxLength(18)
+Gui.F_Transferencias.txtClabe.Create(TextBox,"",False,3420,300,0,1710,5070,True,0,"Arial",8,-2147483643,1)
+Gui.F_Transferencias.txtClabe.MaxLength(18)
+Gui.F_Transferencias.txtReferencia.Create(TextBox,"",True,3420,300,0,5790,1965,True,0,"Arial",8,-2147483643,1)
+Gui.F_Transferencias.txtMonto.Create(TextBox,"",True,1905,300,0,2130,1965,True,0,"Arial",8,-2147483643,1)
+Gui.F_Transferencias.txtMonto.NumericOnly(2)
+Gui.F_Transferencias.txtPPMoneda.Create(TextBox,"",False,1200,300,0,4440,3045,True,0,"Arial",8,-2147483643,1)
+Gui.F_Transferencias.txtPPMoneda.Locked(True)
+Gui.F_Transferencias.cmdGuardar.Create(Button)
+Gui.F_Transferencias.cmdGuardar.Size(3000,600)
+Gui.F_Transferencias.cmdGuardar.Position(7965,4830)
+Gui.F_Transferencias.cmdGuardar.Caption("GUARDAR")
+Gui.F_Transferencias.cmdGuardar.Event(Click,cmdGuardar_Click)
+Gui.F_Transferencias.lblTranEntreCuenta.Create(Label,"TRANSFERENCIA ENTRE CUENTA",False,8505,390,0,6735,2580,True,2,"Arial",9,-2147483633,0)
+Gui.F_Transferencias.lblCUENTAOR.Create(Label,"CUENTA ORIGEN",False,1650,300,0,5760,3405,True,0,"Arial",9,-2147483633,0)
+Gui.F_Transferencias.lblCUENTADES.Create(Label,"CUENTA DESTINO",False,1650,255,0,5760,3810,True,0,"Arial",9,-2147483633,0)
+Gui.F_Transferencias.cmdCuentaOrBrowser.Create(Button)
+Gui.F_Transferencias.cmdCuentaOrBrowser.Size(435,375)
+Gui.F_Transferencias.cmdCuentaOrBrowser.Position(7440,3270)
+Gui.F_Transferencias.cmdCuentaOrBrowser.Caption("^")
+Gui.F_Transferencias.cmdCuentaOrBrowser.Event(Click,cmdCuentaOrBrowser_Click)
+Gui.F_Transferencias.cmdCuentaOrBrowser.Visible(False)
+Gui.F_Transferencias.cmdCuentaDesBrowser.Create(Button)
+Gui.F_Transferencias.cmdCuentaDesBrowser.Size(435,375)
+Gui.F_Transferencias.cmdCuentaDesBrowser.Position(7455,3705)
+Gui.F_Transferencias.cmdCuentaDesBrowser.Caption("^")
+Gui.F_Transferencias.cmdCuentaDesBrowser.Event(Click,cmdCuentaDesBrowser_Click)
+Gui.F_Transferencias.cmdCuentaDesBrowser.Visible(False)
+Gui.F_Transferencias.lblCUENTADESOR.Create(Label,"CUENTA",False,3000,300,0,8085,2985,True,2,"Arial",9,-2147483633,0)
+Gui.F_Transferencias.lblCUENTADESOR.BorderStyle(1)
+Gui.F_Transferencias.lblDESC.Create(Label,"DESCRIPCION",False,3000,300,0,11175,2985,True,2,"Arial",9,-2147483633,0)
+Gui.F_Transferencias.lblDESC.BorderStyle(1)
+Gui.F_Transferencias.txtCuentaOrig.Create(TextBox,"",False,3000,300,0,8085,3315,True,0,"Arial",8,-2147483643,1)
+Gui.F_Transferencias.txtCuentaOrig.Locked(True)
+Gui.F_Transferencias.txtCuentaDest.Create(TextBox,"",False,3000,300,0,8085,3750,True,0,"Arial",8,-2147483643,1)
+Gui.F_Transferencias.txtCuentaDest.Locked(True)
+Gui.F_Transferencias.txtCuentaOrigDesc.Create(TextBox,"",False,3000,300,0,11175,3315,True,0,"Arial",8,-2147483643,1)
+Gui.F_Transferencias.txtCuentaOrigDesc.Locked(True)
+Gui.F_Transferencias.txtCuentaDestDesc.Create(TextBox,"",False,3000,300,0,11175,3750,True,0,"Arial",8,-2147483643,1)
+Gui.F_Transferencias.txtCuentaDestDesc.Locked(True)
+Gui.F_Transferencias.txtPROV.Create(TextBox,"",False,1200,300,0,1485,3045,True,0,"Arial",8,-2147483643,1)
+Gui.F_Transferencias.txtPROV.Locked(True)
+Gui.F_Transferencias.cmdInfoBanco.Create(Button)
+Gui.F_Transferencias.cmdInfoBanco.Visible(False)
+Gui.F_Transferencias.cmdInfoBanco.Size(435,375)
+Gui.F_Transferencias.cmdInfoBanco.Position(5205,4020)
+Gui.F_Transferencias.cmdInfoBanco.Caption("^")
+Gui.F_Transferencias.cmdInfoBanco.Event(Click,cmdInfoBanco_Click)
+Gui.F_Transferencias.lblTransMoneda.Create(Label,"MONEDA",False,3000,300,0,14295,2985,True,2,"Arial",9,-2147483633,0)
+Gui.F_Transferencias.lblTransMoneda.BorderStyle(1)
+Gui.F_Transferencias.txtMonedaCTAOrig.Create(TextBox,"",False,3000,300,0,14295,3315,True,0,"Arial",8,-2147483643,1)
+Gui.F_Transferencias.txtMonedaCTAOrig.Locked(True)
+Gui.F_Transferencias.txtMonedaCTADes.Create(TextBox,"",False,3000,300,0,14295,3750,True,0,"Arial",8,-2147483643,1)
+Gui.F_Transferencias.txtMonedaCTADes.Locked(True)
+Gui.F_Transferencias.cmdPrintReport.Create(Button)
+Gui.F_Transferencias.cmdPrintReport.Size(3000,600)
+Gui.F_Transferencias.cmdPrintReport.Position(14340,4830)
+Gui.F_Transferencias.cmdPrintReport.Caption("IMPRIMIR TRANSFERENCIA")
+Gui.F_Transferencias.cmdPrintReport.Event(Click,cmdPrintReport_Click)
+Gui.F_Transferencias.lblBatch.Create(Label,"BATCH",True,1470,255,0,4650,1425,True,2,"Arial",9,-2147483633,0)
+Gui.F_Transferencias.txtBatch.Create(TextBox,"",True,1905,300,0,6240,1335,True,0,"Arial",8,-2147483643,1)
+Gui.F_Transferencias.txtBatch.NumericOnly(2)
+Gui.F_Transferencias.cmdPrintCheck.Create(Button)
+Gui.F_Transferencias.cmdPrintCheck.Size(3000,600)
+Gui.F_Transferencias.cmdPrintCheck.Position(11160,4830)
+Gui.F_Transferencias.cmdPrintCheck.Caption("IMPRIMIR CHEQUE")
+Gui.F_Transferencias.cmdPrintCheck.Event(Click,cmdPrintCheck_Click)
+Gui.F_Transferencias.chkCheck.Create(CheckBox)
+Gui.F_Transferencias.chkCheck.Size(3015,360)
+Gui.F_Transferencias.chkCheck.Position(10770,1425)
+Gui.F_Transferencias.chkCheck.Caption("Pago con Cheque")
+Gui.F_Transferencias.chkCheck.Event(Click,chkCheck_Click)
+Gui.F_Transferencias.chkCheck.FontSize(9)
+Gui.F_Transferencias.lblCheque.Create(Label,"CONSECUTIVO",False,1995,255,0,9510,2025,True,2,"Arial",9,-2147483633,0)
+Gui.F_Transferencias.txtCheque.Create(TextBox,"",False,1905,300,0,11595,1965,True,0,"Arial",8,-2147483643,1)
+Gui.F_Transferencias.txtCheque.NumericOnly(2)
+Gui.F_Transferencias.txtCheque.Locked(True)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.ODBC.Connection!conx.OpenCompanyConnection
+
+
+'VERIFY IF THERE IS ANY TABLES
+f.Intrinsic.Control.CallSub(CheckTables)
+
+'General Ledger > Transactions > Journal Entries > New 
+'POPULATE HOOK
+F.Intrinsic.Control.If(v.Caller.Hook,=,46710)
+	V.Passed.000024.Set("Transferencias")
+	V.Passed.Global.Set(V.Passed.000002)
+
+'SCRIPT 3
+f.Intrinsic.Control.ElseIf(v.Caller.Hook,=,46740)
+f.Intrinsic.Control.CallSub(F_TRANSFERENCIAS_LOAD)
+
+'Accounts Payable > File > Vendors > Open 
+'POPULATE
+f.Intrinsic.Control.ElseIf(v.Caller.Hook,=,14461)
+	V.Passed.Global.Set(V.Passed.000002)
+
+'Accounts Payable > File > Vendors > Open > Options 
+'POPULATE
+f.Intrinsic.Control.ElseIf(v.Caller.Hook,=,14501)
+	V.Passed.000080.Set("Transferencias")
+	
+'Script 3
+f.Intrinsic.Control.ElseIf(v.Caller.Hook,=,14506)
+	'SET INFORMACION BANCARIA
+	gui.F_BankInfo..Show
+
+F.Intrinsic.Control.EndIf
+
+Program.Sub.Main.End
+
+Program.Sub.CheckTables.Start
+V.Local.bExists.Declare
+V.Local.sSQL.Declare
+
+'verify if table GAB_5899_VENDOR exists and if not it creates table ELSE it updates serial number +1
+F.ODBC.Connection!conx.TableExists("GAB_5899_VENDOR",V.Local.bExists)
+F.Intrinsic.Control.If(v.Local.bExists,=,False)
+	V.Local.sSQL.Set("CREATE TABLE GAB_5899_VENDOR ( PROVEEDOR CHAR(6), BANCO CHAR(50), CUENTA CHAR(21), CLABE CHAR(21), REGISTRO CHAR(1)); CREATE UNIQUE INDEX GAB_5899_VENDOR_K01 ON GAB_5899_VENDOR ( PROVEEDOR, BANCO, CUENTA );")
+	f.ODBC.Connection!conx.Execute(v.Local.sSQL)
+F.Intrinsic.Control.EndIf
+'VERIFY TABLE GAB_5899_TRANSFER
+F.ODBC.Connection!conx.TableExists("GAB_5899_TRANSFER",V.Local.bExists)
+F.Intrinsic.Control.If(v.Local.bExists,=,False)
+	V.Local.sSQL.Set("CREATE TABLE GAB_5899_TRANSFER ( GL_BATCH CHAR(15), PROVEEDOR CHAR(50), BANCO_DESTINO CHAR(50), CUENTA CHAR(21), CLABE CHAR(21), FECHA CHAR(8), REFERENCIA CHAR(50), MONTO NUMERIC(16,2), CHECK_NUM NUMERIC(4,0), MONEDA CHAR(3), CUENTA_ORIGEN CHAR(40), CUENTA_DESTINO CHAR(40),MONEDA_CTA_ORIG CHAR(3),MONEDA_CTA_DEST CHAR(3),  PAGO_PROVEEDOR CHAR(1), TRANS_CUENTA CHAR(1)); CREATE UNIQUE INDEX GAB_5899_TRANSFK01 ON GAB_5899_TRANSFER ( GL_BATCH, PROVEEDOR, CUENTA ); CREATE UNIQUE INDEX GAB_5899_TRANSFK02 ON GAB_5899_TRANSFER ( GL_BATCH, CUENTA_ORIGEN, CUENTA_DESTINO );")
+	f.ODBC.Connection!conx.Execute(v.Local.sSQL)
+
+F.Intrinsic.Control.EndIf	
+'VERIFY TABLE GAB_5899_CHECK
+F.ODBC.Connection!conx.TableExists("GAB_5899_CHECK",V.Local.bExists)
+F.Intrinsic.Control.If(v.Local.bExists,=,False)
+	V.Local.sSQL.Set("CREATE TABLE GAB_5899_CHECK( CHECK_NUM NUMERIC(4,0)); CREATE UNIQUE INDEX GAB_5899_CHECKK00 ON GAB_5899_CHECK(CHECK_NUM);	")
+	f.ODBC.Connection!conx.Execute(v.Local.sSQL)	
+	'INSERT COUNTER
+	f.ODBC.Connection!conx.Execute("INSERT INTO GAB_5899_CHECK(CHECK_NUM) VALUES('0')")
+F.Intrinsic.Control.EndIf
+Program.Sub.CheckTables.End
+
+Program.Sub.F_TRANSFERENCIAS_LOAD.Start
+V.Local.sSQL.Declare(String)
+v.Local.sBatch.Declare
+V.Local.sTransferCheck.Declare
+v.Local.sVendorName.Declare
+v.Local.sCTAOrigen.Declare
+v.Local.sCTADest.Declare
+V.Local.sDataCheck.Declare
+v.Local.sCheck.Declare
+
+v.Local.sBatch.Set(V.Passed.000003)
+GUI.F_Transferencias.txtBatch.Text(V.Local.sBatch)
+
+'Function.Intrinsic.Debug.InvokeDebugger
+'Function.Intrinsic.Debug.Stop
+
+
+
+F.Intrinsic.String.Build("select COUNT(gl_batch) from GAB_5899_TRANSFER WHERE gl_batch = '{0}'",V.Local.sBatch,V.Local.sSQL)
+F.ODBC.Connection!conx.ExecuteAndReturn(v.Local.sSQL,V.Local.sDataCheck)
+
+F.Intrinsic.String.Build("select CHECK_NUM from GAB_5899_TRANSFER WHERE gl_batch = '{0}'",V.Local.sBatch,V.Local.sSQL)
+F.ODBC.Connection!conx.ExecuteAndReturn(v.Local.sSQL,V.Local.sCheck)
+
+f.Intrinsic.Control.If(v.Local.sCheck,=,"")
+f.Intrinsic.Control.Else
+	gui.F_Transferencias.chkCheck.Value(1)
+	gui.F_Transferencias.txtCheque.Text(v.Local.sCheck)
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.If(V.Local.sDataCheck,=,0)
+	gui.F_Transferencias.chkPagoProv.Value(0)
+	gui.F_Transferencias.chkTransEntreCuenta.Value(0)
+f.Intrinsic.Control.Else
+	
+	F.Intrinsic.String.Build("SELECT PAGO_PROVEEDOR FROM GAB_5899_TRANSFER WHERE GL_BATCH = '{0}'",V.Local.sBatch,V.Local.sSQL)
+	F.ODBC.Connection!conx.ExecuteAndReturn(v.Local.sSQL,V.Local.sTransferCheck)
+	F.Intrinsic.Control.If(V.Local.sTransferCheck,=,"Y")
+		'set info on pago a proovedor
+		gui.F_Transferencias.chkPagoProv.Value(1)
+		
+		'Load Existing Data into Form searching from custom table GAB_5899_TRANSFER
+		F.Intrinsic.String.Build("select b.name_vendor from GAB_5899_TRANSFER a inner join v_vendor_master b on a.proveedor = b.vendor where a.gl_batch =  '{0}'",V.Local.sBatch,V.Local.sSQL)
+		F.ODBC.Connection!conx.ExecuteAndReturn(v.Local.sSQL,V.Local.sVendorName)
+		
+		F.Intrinsic.String.Build("select PROVEEDOR,BANCO_DESTINO,CUENTA,CLABE,FECHA,REFERENCIA,MONEDA,MONTO,CHECK_NUM,PAGO_PROVEEDOR,GL_BATCH from GAB_5899_TRANSFER WHERE GL_BATCH = '{0}'",v.Local.sBatch,V.Local.sSQL)
+		F.ODBC.Connection!conx.OpenRecordsetRO("rstLoadPP",V.Local.sSql)
+		F.Intrinsic.Control.If(V.ODBC.conx!rstLoadPP.EOF,=,"False")
+			F.Intrinsic.Control.If(V.ODBC.conx!rstLoadPP.FieldValTrim!GL_BATCH,=,"")
+				gui.F_Transferencias.txtPROV.Value(0)
+				gui.F_Transferencias.txtProvNombre.Text(v.Local.sVendorName)
+				gui.F_Transferencias.txtBanco.Value(1)
+				gui.F_Transferencias.txtCuenta.Value(2)
+				gui.F_Transferencias.txtClabe.Value(3)
+				gui.F_Transferencias.lblDate.Value(4)
+				gui.F_Transferencias.txtReferencia.Value(5)
+				gui.F_Transferencias.txtPPMoneda.Value(6)
+				gui.F_Transferencias.txtMonto.Value(7)
+				gui.F_Transferencias.txtCheque.Value(8)
+			F.Intrinsic.Control.EndIf
+			gui.F_Transferencias.txtPROV.Text(v.ODBC.conx!rstLoadPP.FieldValTrim!PROVEEDOR)
+			gui.F_Transferencias.txtProvNombre.Text(V.Local.sVendorName)
+			gui.F_Transferencias.txtBanco.Text(v.ODBC.conx!rstLoadPP.FieldValTrim!BANCO_DESTINO)
+			gui.F_Transferencias.txtCuenta.Text(v.ODBC.conx!rstLoadPP.FieldValTrim!CUENTA)
+			GUI.F_Transferencias.txtClabe.Text(v.ODBC.conx!rstLoadPP.FieldValTrim!CLABE)
+			gui.F_Transferencias.lblDate.Text(v.ODBC.conx!rstLoadPP.FieldValTrim!FECHA)
+			gui.F_Transferencias.txtReferencia.Text(v.ODBC.conx!rstLoadPP.FieldValTrim!REFERENCIA)
+			gui.F_Transferencias.txtPPMoneda.Text(v.ODBC.conx!rstLoadPP.FieldValTrim!MONEDA)
+			gui.F_Transferencias.txtMonto.Text(v.ODBC.conx!rstLoadPP.FieldValTrim!MONTO)
+			gui.F_Transferencias.txtCheque.Text(v.ODBC.conx!rstLoadPP.FieldValTrim!CHECK_NUM)
+		F.Intrinsic.Control.EndIf
+	
+		
+		
+	f.Intrinsic.Control.Else
+		'set info on tranferencia a cuenta
+		gui.F_Transferencias.chkTransEntreCuenta.Value(1)
+	'	F.Intrinsic.String.Build("select b.name_vendor from GAB_5899_TRANSFER a inner join v_vendor_master b on a.proveedor = b.vendor where a.gl_batch =  '{0}'",V.Local.sBatch,V.Local.sSQL)
+	'	F.ODBC.Connection!conx.ExecuteAndReturn(v.Local.sSQL,V.Local.sVendorName)
+		F.Intrinsic.String.Build("select b.bank_desc from GAB_5899_TRANSFER a inner join v_cash_account b on a.cuenta_origen = b.bank_account where a.gl_batch =  '{0}'",V.Local.sBatch,V.Local.sSQL)
+		F.ODBC.Connection!conx.ExecuteAndReturn(v.Local.sSQL,V.Local.sCTAOrigen)
+		gui.F_Transferencias.txtCuentaOrigDesc.Text(v.Local.sCTAOrigen)
+		F.Intrinsic.String.Build("select b.bank_desc from GAB_5899_TRANSFER a inner join v_cash_account b on a.cuenta_destino = b.bank_account where a.gl_batch =  '{0}'",V.Local.sBatch,V.Local.sSQL)
+		F.ODBC.Connection!conx.ExecuteAndReturn(v.Local.sSQL,V.Local.sCTADest)
+		gui.F_Transferencias.txtCuentaDestDesc.Text(v.Local.sCTADest)
+		'Load Existing Data into Form searching from custom table GAB_5899_TRANSFER
+		F.Intrinsic.String.Build("select PROVEEDOR,FECHA,REFERENCIA,MONTO,CHECK_NUM,MONEDA_CTA_ORIG,MONEDA_CTA_DEST,CUENTA_ORIGEN,CUENTA_DESTINO,TRANS_CUENTA,GL_BATCH from GAB_5899_TRANSFER WHERE GL_BATCH = '{0}'",v.Local.sBatch,V.Local.sSQL)
+		F.ODBC.Connection!conx.OpenRecordsetRO("rstLoadTC",V.Local.sSql)
+		F.Intrinsic.Control.If(V.ODBC.conx!rstLoadTC.EOF,=,"False")
+			F.Intrinsic.Control.If(V.ODBC.conx!rstLoadTC.FieldValTrim!GL_BATCH,=,"")
+				'GUI.F_Transferencias.txtPROV.Value(0)
+				'gui.F_Transferencias.txtProvNombre.Text(V.Local.sVendorName)
+				gui.F_Transferencias.lblDate.Value(1)
+				gui.F_Transferencias.txtReferencia.Value(2)
+				gui.F_Transferencias.txtMonto.Value(3)
+				gui.F_Transferencias.txtCheque.Value(4)
+				gui.F_Transferencias.txtMonedaCTAOrig.Value(5)
+				gui.F_Transferencias.txtMonedaCTADes.Value(6)
+				gui.F_Transferencias.txtCuentaOrig.Value(7)
+				gui.F_Transferencias.txtCuentaDest.Value(8)
+			F.Intrinsic.Control.EndIf
+	'		GUI.F_Transferencias.txtPROV.Text(v.ODBC.conx!rstLoadTC.FieldValTrim!PROVEEDOR)
+	'		gui.F_Transferencias.txtProvNombre.Text(V.Local.sVendorName)
+			gui.F_Transferencias.lblDate.Text(v.ODBC.conx!rstLoadTC.FieldValTrim!FECHA)
+			gui.F_Transferencias.txtReferencia.Text(v.ODBC.conx!rstLoadTC.FieldValTrim!REFERENCIA)
+			gui.F_Transferencias.txtMonto.Text(v.ODBC.conx!rstLoadTC.FieldValTrim!MONTO)
+			gui.F_Transferencias.txtCheque.Text(v.ODBC.conx!rstLoadPP.FieldValTrim!CHECK_NUM)
+			gui.F_Transferencias.txtMonedaCTAOrig.Text(v.ODBC.conx!rstLoadTC.FieldValTrim!MONEDA_CTA_ORIG)
+			gui.F_Transferencias.txtMonedaCTADes.Text(v.ODBC.conx!rstLoadTC.FieldValTrim!MONEDA_CTA_DEST)
+			gui.F_Transferencias.txtCuentaOrig.Text(v.ODBC.conx!rstLoadTC.FieldValTrim!CUENTA_ORIGEN)
+			gui.F_Transferencias.txtCuentaOrigDesc.Text(v.Local.sCTAOrigen)
+			gui.F_Transferencias.txtCuentaDest.Text(v.ODBC.conx!rstLoadTC.FieldValTrim!CUENTA_DESTINO)
+			gui.F_Transferencias.txtCuentaDestDesc.Text(v.Local.sCTADest)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+f.Intrinsic.Control.EndIf
+
+
+GUI.F_Transferencias..Show	
+gui.F_Transferencias.lblDate.Text(v.Ambient.Date)
+Program.Sub.F_TRANSFERENCIAS_LOAD.End
+
+Program.Sub.cmdProvBrowser_Click.Start
+v.Local.sRet.Declare(string)
+v.Local.sTitles.Declare(string)
+v.Local.iWidths.Declare(long)
+'FROM A CUSTOM BROWSER GET THE VENDOR INFORMATION(VENDOR, VENDOR NAME) AND STORE IT INTO 2 TEXT BOXES
+F.Intrinsic.String.Split("PROVEEDOR*!*NOMBRE_PROVEEDOR*!*MONEDA","*!*",v.local.sTitles)
+F.Intrinsic.String.Split("200*!*800*!*200","*!*",v.local.iWidths)
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+F.Intrinsic.UI.Browser("Selecciona el Proveedor","CONX","select A.VENDOR,A.NAME_VENDOR,B.CURRENCY from V_VENDOR_MASTER A INNER JOIN VENDOR_CURR B ON A.VENDOR = B.VENDOR ORDER BY NAME_VENDOR",v.Local.sTitles,v.Local.iWidths,v.Local.sRet)
+F.Intrinsic.Control.If(v.Local.sRet,"=","***CANCEL***")
+ F.Intrinsic.Control.Else
+ F.Intrinsic.String.Split(v.Local.sRet,"*!*",v.Local.sRet)
+ 	gui.F_Transferencias.txtPROV.Text(V.Local.sRet(0).Trim)
+ 	gui.F_Transferencias.txtProvNombre.Text(V.Local.sRet(1).Trim)
+ 	gui.F_Transferencias.txtPPMoneda.Text(V.Local.sRet(2).Trim)
+F.Intrinsic.Control.EndIf
+Program.Sub.cmdProvBrowser_Click.End
+
+Program.Sub.cmdInfoBanco_Click.Start
+v.Local.sRet.Declare
+v.Local.sTitles.Declare
+v.Local.iWidths.Declare(long)
+V.Local.sMessage.Declare
+V.Local.sSQL.Declare
+V.Local.sVendorCheck.Declare
+'Function.Intrinsic.Debug.InvokeDebugger
+'Function.Intrinsic.Debug.Stop
+
+F.Intrinsic.String.Build("select COUNT(PROVEEDOR) from GAB_5899_VENDOR WHERE PROVEEDOR = '{0}'",v.Screen.F_Transferencias!txtPROV.Text,V.Local.sSQL)
+F.ODBC.Connection!conx.ExecuteAndReturn(v.Local.sSQL,V.Local.sVendorCheck)
+
+f.Intrinsic.Control.If(v.Local.sVendorCheck,=,0)
+	F.Intrinsic.String.Build("NO EXISTE INFORMACION BANCARIA PARA PROVEEDOR {0}, FAVOR DE INGRESARLA EN LOS CAMPOS DE ABAJO",v.Screen.F_Transferencias!txtPROV.Text,V.Local.sMessage)
+	f.Intrinsic.UI.Msgbox(v.Local.sMessage)
+f.Intrinsic.Control.Else
+'FROM A CUSTOM BROWSER GET THE BANK INFORMATION(VENDOR, VENDOR NAME) AND STORE IT INTO TEXT BOXES
+	F.Intrinsic.String.Split("PROVEEDOR*!*BANCO*!*CUENTA*!*CLABE","*!*",v.local.sTitles)
+	F.Intrinsic.String.Split("200*!*800*!*500*!*500","*!*",v.local.iWidths)
+	F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+	F.Intrinsic.String.Build("select PROVEEDOR,BANCO,CUENTA,CLABE from GAB_5899_VENDOR where PROVEEDOR = '{0}'",v.Screen.F_Transferencias!txtPROV.Text,V.Local.sSQL)
+	F.Intrinsic.UI.Browser("Selecciona el Proveedor","CONX",v.Local.sSQL,v.Local.sTitles,v.Local.iWidths,v.Local.sRet)
+	F.Intrinsic.Control.If(v.Local.sRet,"=","***CANCEL***")
+	 F.Intrinsic.Control.Else
+	 F.Intrinsic.String.Split(v.Local.sRet,"*!*",v.Local.sRet)
+	 	GUI.F_Transferencias.txtBanco.Text(V.Local.sRet(1).Trim)
+	 	GUI.F_Transferencias.txtCuenta.Text(V.Local.sRet(2).Trim)
+	 	GUI.F_Transferencias.txtClabe.Text(V.Local.sRet(3).Trim)
+	F.Intrinsic.Control.EndIf
+f.Intrinsic.Control.EndIf
+
+
+
+Program.Sub.cmdInfoBanco_Click.End
+
+Program.Sub.chkPagoProv_Click.Start
+F.Intrinsic.Control.If(V.Screen.F_Transferencias!chkPagoProv.Value,=,1)
+	gui.F_Transferencias.chkTransEntreCuenta.Value(0)
+	'TRANSFERENCIA ENTRE CUENTAS NEEDS TO BE DISABLED
+	GUI.F_Transferencias.lblTranEntreCuenta.Visible(False)
+	gui.F_Transferencias.lblCUENTADESOR.Visible(False)
+	GUI.F_Transferencias.lblDESC.Visible(False)
+	GUI.F_Transferencias.lblCUENTAOR.Visible(False)
+	GUI.F_Transferencias.lblCUENTADES.Visible(False)
+	GUI.F_Transferencias.cmdCuentaDesBrowser.Visible(False)
+	GUI.F_Transferencias.cmdCuentaOrBrowser.Visible(False)
+	GUI.F_Transferencias.txtCuentaOrig.Visible(False)
+	GUI.F_Transferencias.txtCuentaOrigDesc.Visible(False)
+	GUI.F_Transferencias.txtCuentaDest.Visible(False)
+	GUI.F_Transferencias.txtCuentaDestDesc.Visible(False)
+	gui.F_Transferencias.lblTransMoneda.Visible(False)
+	GUI.F_Transferencias.txtMonedaCTADes.Visible(False)
+	gui.F_Transferencias.txtMonedaCTAOrig.Visible(False)
+
+	'DELETE DATA FROM TRASNFERENCIA ENTRE CUENTA
+	GUI.F_Transferencias.txtCuentaOrig.Text("")
+	GUI.F_Transferencias.txtCuentaOrigDesc.Text("")
+	GUI.F_Transferencias.txtCuentaDest.Text("")
+	GUI.F_Transferencias.txtCuentaDestDesc.Text("")
+	GUI.F_Transferencias.txtMonedaCTADes.Text("")
+	gui.F_Transferencias.txtMonedaCTAOrig.Text("")
+	
+	'INFO BANCARIA NEEDS TO BE ENABLED
+	GUI.F_Transferencias.lblInfoBancaria.Visible(True)
+	GUI.F_Transferencias.lblBANCO.Visible(True)
+	GUI.F_Transferencias.lblCUENTAINFOBANK.Visible(True)
+	GUI.F_Transferencias.lblCLABE.Visible(True)
+	GUI.F_Transferencias.cmdInfoBanco.Visible(True)
+	GUI.F_Transferencias.txtBanco.Visible(True)
+	GUI.F_Transferencias.txtCuenta.Visible(True)
+	GUI.F_Transferencias.txtClabe.Visible(True)
+	GUI.F_Transferencias.lblVendor.Visible(True)
+	gui.F_Transferencias.txtPROV.Visible(True)
+	GUI.F_Transferencias.cmdProvBrowser.Visible(True)
+	gui.F_Transferencias.txtProvNombre.Visible(True)
+	GUI.F_Transferencias.lblPPMoneda.Visible(True)
+	GUI.F_Transferencias.txtPPMoneda.Visible(True)
+
+f.Intrinsic.Control.Else
+	gui.F_Transferencias.chkTransEntreCuenta.Value(1)
+	'ELSE INFO BANCARIA NEEDS TO BE DISABLED
+	GUI.F_Transferencias.lblInfoBancaria.Visible(False)
+	GUI.F_Transferencias.lblBANCO.Visible(False)
+	GUI.F_Transferencias.lblCUENTAINFOBANK.Visible(False)
+	GUI.F_Transferencias.lblCLABE.Visible(False)
+	GUI.F_Transferencias.cmdInfoBanco.Visible(False)
+	GUI.F_Transferencias.txtBanco.Visible(False)
+	GUI.F_Transferencias.txtCuenta.Visible(False)
+	GUI.F_Transferencias.txtClabe.Visible(False)
+	GUI.F_Transferencias.lblVendor.Visible(False)
+	gui.F_Transferencias.txtPROV.Visible(False)
+	GUI.F_Transferencias.cmdProvBrowser.Visible(False)
+	gui.F_Transferencias.txtProvNombre.Visible(False)
+	GUI.F_Transferencias.lblPPMoneda.Visible(False)
+	GUI.F_Transferencias.txtPPMoneda.Visible(False)
+	
+F.Intrinsic.Control.EndIf
+Program.Sub.chkPagoProv_Click.End
+
+Program.Sub.chkTransEntreCuenta_Click.Start
+F.Intrinsic.Control.If(V.Screen.F_Transferencias!chkTransEntreCuenta.Value,=,1)
+	'INFO BANCARIA NEEDS TO BE DISABLED
+	gui.F_Transferencias.chkPagoProv.Value(0)
+	GUI.F_Transferencias.lblInfoBancaria.Visible(False)
+	GUI.F_Transferencias.lblBANCO.Visible(False)
+	GUI.F_Transferencias.lblCUENTAINFOBANK.Visible(False)
+	GUI.F_Transferencias.lblCLABE.Visible(False)
+	GUI.F_Transferencias.cmdInfoBanco.Visible(False)
+	GUI.F_Transferencias.txtBanco.Visible(False)
+	GUI.F_Transferencias.txtCuenta.Visible(False)
+	GUI.F_Transferencias.txtClabe.Visible(False)
+	GUI.F_Transferencias.lblVendor.Visible(False)
+	gui.F_Transferencias.txtPROV.Visible(False)
+	GUI.F_Transferencias.cmdProvBrowser.Visible(False)
+	gui.F_Transferencias.txtProvNombre.Visible(False)
+	GUI.F_Transferencias.lblPPMoneda.Visible(False)
+	GUI.F_Transferencias.txtPPMoneda.Visible(False)
+	
+	'INFORMACION BANCARIA NEEDS TO BE DELETED
+	GUI.F_Transferencias.txtBanco.Text("")	
+	GUI.F_Transferencias.txtCuenta.Text("")	
+	GUI.F_Transferencias.txtClabe.Text("")
+	gui.F_Transferencias.txtPROV.Text("")
+	gui.F_Transferencias.txtProvNombre.Text("")
+	GUI.F_Transferencias.txtPPMoneda.Text("")
+			
+	
+	'TRANSFERENCIA ENTRE CUENTAS NEEDS TO BE ENABLED
+	GUI.F_Transferencias.lblTranEntreCuenta.Visible(True)
+	GUI.F_Transferencias.lblCUENTADESOR.Visible(True)
+	GUI.F_Transferencias.lblDESC.Visible(True)
+	GUI.F_Transferencias.lblCUENTAOR.Visible(True)
+	GUI.F_Transferencias.lblCUENTADES.Visible(True)
+	GUI.F_Transferencias.cmdCuentaDesBrowser.Visible(True)
+	GUI.F_Transferencias.cmdCuentaOrBrowser.Visible(True)
+	GUI.F_Transferencias.txtCuentaOrig.Visible(True)
+	GUI.F_Transferencias.txtCuentaOrigDesc.Visible(True)
+	GUI.F_Transferencias.txtCuentaDest.Visible(True)
+	GUI.F_Transferencias.txtCuentaDestDesc.Visible(True)
+	gui.F_Transferencias.lblTransMoneda.Visible(True)
+	GUI.F_Transferencias.txtMonedaCTADes.Visible(True)
+	gui.F_Transferencias.txtMonedaCTAOrig.Visible(True)
+
+f.Intrinsic.Control.Else
+	gui.F_Transferencias.chkPagoProv.Value(1)
+	'TRANSFERENCIA ENTRE CUENTAS NEEDS TO BE DISABLED
+	GUI.F_Transferencias.lblTranEntreCuenta.Visible(False)
+	gui.F_Transferencias.lblCUENTADESOR.Visible(False)
+	GUI.F_Transferencias.lblDESC.Visible(False)
+	GUI.F_Transferencias.lblCUENTAOR.Visible(False)
+	GUI.F_Transferencias.lblCUENTADES.Visible(False)
+	GUI.F_Transferencias.cmdCuentaDesBrowser.Visible(False)
+	GUI.F_Transferencias.cmdCuentaOrBrowser.Visible(False)
+	GUI.F_Transferencias.txtCuentaOrig.Visible(False)
+	GUI.F_Transferencias.txtCuentaOrigDesc.Visible(False)
+	GUI.F_Transferencias.txtCuentaDest.Visible(False)
+	GUI.F_Transferencias.txtCuentaDestDesc.Visible(False)
+	gui.F_Transferencias.lblTransMoneda.Visible(False)
+	GUI.F_Transferencias.txtMonedaCTADes.Visible(False)
+	gui.F_Transferencias.txtMonedaCTAOrig.Visible(False)
+F.Intrinsic.Control.EndIf
+Program.Sub.chkTransEntreCuenta_Click.End
+
+Program.Sub.cmdCuentaOrBrowser_Click.Start
+v.Local.sRet.Declare(string)
+v.Local.sTitles.Declare(string)
+v.Local.iWidths.Declare(long)
+'FROM A CUSTOM BROWSER GET THE VENDOR INFORMATION(VENDOR, VENDOR NAME) AND STORE IT INTO 2 TEXT BOXES
+F.Intrinsic.String.Split("PROVEEDOR*!*NOMBRE_PROVEEDOR*!*MONEDA","*!*",v.local.sTitles)
+F.Intrinsic.String.Split("200*!*800*!*200","*!*",v.local.iWidths)
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+F.Intrinsic.UI.Browser("Selecciona la Cuenta Origen","CONX","select DISTINCT BANK_ACCOUNT,BANK_DESC,EXCH_CURR from V_CASH_ACCOUNT",v.Local.sTitles,v.Local.iWidths,v.Local.sRet)
+F.Intrinsic.Control.If(v.Local.sRet,"=","***CANCEL***")
+ F.Intrinsic.Control.Else
+ F.Intrinsic.String.Split(v.Local.sRet,"*!*",v.Local.sRet)
+ 	GUI.F_Transferencias.txtCuentaOrig.Text(V.Local.sRet(0).Trim)
+ 	GUI.F_Transferencias.txtCuentaOrigDesc.Text(V.Local.sRet(1).Trim)
+ 	GUI.F_Transferencias.txtMonedaCTAOrig.Text(V.Local.sRet(2).Trim)
+ F.Intrinsic.Control.EndIf
+Program.Sub.cmdCuentaOrBrowser_Click.End
+
+Program.Sub.cmdCuentaDesBrowser_Click.Start
+v.Local.sRet.Declare(string)
+v.Local.sTitles.Declare(string)
+v.Local.iWidths.Declare(long)
+'FROM A CUSTOM BROWSER GET THE VENDOR INFORMATION(VENDOR, VENDOR NAME) AND STORE IT INTO 2 TEXT BOXES
+F.Intrinsic.String.Split("PROVEEDOR*!*NOMBRE_PROVEEDOR*!*MONEDA","*!*",v.local.sTitles)
+F.Intrinsic.String.Split("200*!*800*!*200","*!*",v.local.iWidths)
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+F.Intrinsic.UI.Browser("Selecciona la Cuenta Destino","CONX","select DISTINCT BANK_ACCOUNT,BANK_DESC,EXCH_CURR from V_CASH_ACCOUNT",v.Local.sTitles,v.Local.iWidths,v.Local.sRet)
+F.Intrinsic.Control.If(v.Local.sRet,"=","***CANCEL***")
+ F.Intrinsic.Control.Else
+ F.Intrinsic.String.Split(v.Local.sRet,"*!*",v.Local.sRet)
+ 	GUI.F_Transferencias.txtCuentaDest.Text(V.Local.sRet(0).Trim)
+ 	GUI.F_Transferencias.txtCuentaDestDesc.Text(V.Local.sRet(1).Trim)
+ 	GUI.F_Transferencias.txtMonedaCTADes.Text(V.Local.sRet(2).Trim)
+ F.Intrinsic.Control.EndIf
+Program.Sub.cmdCuentaDesBrowser_Click.End
+
+Program.Sub.cmdGuardar_Click.Start
+V.Local.sSQL.Declare
+v.Local.sBatch.Declare
+v.Local.sDate.Declare
+
+v.Local.sBatch.Set(V.Passed.000003)
+
+f.Intrinsic.Date.ConvertDString(v.Ambient.Date,"MMDDYYYY",V.Local.sDate)
+F.Intrinsic.String.Format(V.local.sDate,"MMDDYYYY",V.local.sDate)
+
+
+f.Intrinsic.Control.If(v.Screen.F_Transferencias!txtMonto.Text,=,"")
+	F.Intrinsic.UI.Msgbox("Monto no Ingresado, favor de ingresar el Monto y Volver a Guardar")
+F.Intrinsic.Control.ElseIf(V.Screen.F_Transferencias!chkPagoProv.Value,=,0,"AND",V.Screen.F_Transferencias!chkTransEntreCuenta.Value,=,0)
+	f.Intrinsic.UI.Msgbox("Favor de seleccionar una opcion de transferencia: Pago a Proveedor o Transferencia Entre Cuenta")
+
+f.Intrinsic.Control.Else
+	'IF CHECKMARK PAGO A PROVEEDORES IS CLICKED
+	F.Intrinsic.Control.If(V.Screen.F_Transferencias!chkPagoProv.Value,=,1)
+	
+	
+	'Save part info into custom table CFDI_COMEXT_INV 
+		F.Intrinsic.String.Build("select * from GAB_5899_TRANSFER WHERE GL_BATCH =  '{0}'",v.Local.sBatch.Trim,V.Local.sSQL)
+		F.ODBC.Connection!CONX.OpenLocalRecordsetRW("RSTPP",v.Local.sSQL)
+		F.Intrinsic.Control.If(v.ODBC.CONX!RSTPP.EOF,=,True)
+			F.ODBC.CONX!RSTPP.AddNew
+			F.ODBC.Conx!RSTPP.Set!GL_BATCH(v.Local.sBatch)
+		F.Intrinsic.Control.EndIf
+		F.ODBC.CONX!RSTPP.Set!PROVEEDOR(V.Screen.F_Transferencias!txtPROV.Text)
+		F.ODBC.CONX!RSTPP.Set!BANCO_DESTINO(V.Screen.F_Transferencias!txtBanco.Text)
+		F.ODBC.CONX!RSTPP.Set!CUENTA(V.Screen.F_Transferencias!txtCuenta.Text)
+		F.ODBC.CONX!RSTPP.Set!CLABE(V.Screen.F_Transferencias!txtClabe.Text)
+		F.ODBC.CONX!RSTPP.Set!FECHA(V.Local.sDate)
+		F.ODBC.CONX!RSTPP.Set!REFERENCIA(V.Screen.F_Transferencias!txtReferencia.Text)
+		F.ODBC.CONX!RSTPP.Set!MONEDA(V.Screen.F_Transferencias!txtPPMoneda.Text)
+		F.ODBC.CONX!RSTPP.Set!MONTO(V.Screen.F_Transferencias!txtMonto.Text)
+		F.ODBC.CONX!RSTPP.Set!CHECK_NUM(V.Screen.F_Transferencias!txtCheque.Text)
+		F.ODBC.CONX!RSTPP.Set!CUENTA_ORIGEN("")
+		F.ODBC.CONX!RSTPP.Set!CUENTA_DESTINO("")
+		F.ODBC.CONX!RSTPP.Set!MONEDA_CTA_ORIG("")
+		F.ODBC.CONX!RSTPP.Set!MONEDA_CTA_DEST("")
+		F.ODBC.CONX!RSTPP.Set!PAGO_PROVEEDOR("Y")
+		F.ODBC.CONX!RSTPP.Set!TRANS_CUENTA("")
+		F.ODBC.Conx!RSTPP.Update
+		F.Intrinsic.UI.Msgbox("DATOS GUARDADOS")
+		F.ODBC.Conx!RSTPP.Close
+	
+	
+	
+	'IF CHECKMARK TRANSFERENCIAS ENTRE CUENTAS
+	F.Intrinsic.Control.ElseIf(V.Screen.F_Transferencias!chkTransEntreCuenta.Value,=,1)
+		F.Intrinsic.String.Build("select * from GAB_5899_TRANSFER WHERE GL_BATCH =  '{0}'",v.Local.sBatch.Trim,V.Local.sSQL)
+		F.ODBC.Connection!CONX.OpenLocalRecordsetRW("RSTTC",v.Local.sSQL)
+		F.Intrinsic.Control.If(v.ODBC.CONX!RSTTC.EOF,=,True)
+			F.ODBC.CONX!RSTTC.AddNew
+			F.ODBC.Conx!RSTTC.Set!GL_BATCH(v.Local.sBatch)
+		F.Intrinsic.Control.EndIf
+		F.ODBC.CONX!RSTTC.Set!PROVEEDOR("")
+		F.ODBC.CONX!RSTTC.Set!BANCO_DESTINO("")
+		F.ODBC.CONX!RSTTC.Set!CUENTA("")
+		F.ODBC.CONX!RSTTC.Set!CLABE("")
+		F.ODBC.CONX!RSTTC.Set!FECHA(V.local.sDate)
+		F.ODBC.CONX!RSTTC.Set!REFERENCIA(V.Screen.F_Transferencias!txtReferencia.Text)
+		F.ODBC.CONX!RSTTC.Set!MONTO(V.Screen.F_Transferencias!txtMonto.Text)
+		F.ODBC.CONX!RSTPP.Set!CHECK_NUM(V.Screen.F_Transferencias!txtCheque.Text)
+		F.ODBC.CONX!RSTTC.Set!MONEDA("")
+		F.ODBC.CONX!RSTTC.Set!CUENTA_ORIGEN(V.Screen.F_Transferencias!txtCuentaOrig.Text)
+		F.ODBC.CONX!RSTTC.Set!CUENTA_DESTINO(V.Screen.F_Transferencias!txtCuentaDest.Text)
+		F.ODBC.CONX!RSTTC.Set!MONEDA_CTA_ORIG(V.Screen.F_Transferencias!txtMonedaCTAOrig.Text)
+		F.ODBC.CONX!RSTTC.Set!MONEDA_CTA_DEST(V.Screen.F_Transferencias!txtMonedaCTADes.Text)
+		F.ODBC.CONX!RSTTC.Set!PAGO_PROVEEDOR("")
+		F.ODBC.CONX!RSTTC.Set!TRANS_CUENTA("Y")
+		F.ODBC.Conx!RSTTC.Update
+		F.Intrinsic.UI.Msgbox("DATOS GUARDADOS")
+		F.ODBC.Conx!RSTTC.Close
+	
+	F.Intrinsic.Control.EndIf
+'update check num
+f.Intrinsic.String.Build("update GAB_5899_CHECK set CHECK_NUM = '{0}'",v.Screen.F_Transferencias!txtCheque.Text,v.Local.sSQL)
+F.ODBC.Connection!conx.Execute(v.Local.sSQL)
+f.Intrinsic.Control.EndIf
+Program.Sub.cmdGuardar_Click.End
+
+Program.Sub.F_Transferencias_UnLoad.Start
+F.ODBC.Connection!CONX.Close
+F.Intrinsic.Control.End
+Program.Sub.F_Transferencias_UnLoad.End
+
+Program.Sub.F_BankInfo_UnLoad.Start
+F.ODBC.Connection!CONX.Close
+F.Intrinsic.Control.End
+Program.Sub.F_BankInfo_UnLoad.End
+
+Program.Sub.cmdNewBank_Click.Start
+gui.F_BankInfo.txtOpBanco.Text("")
+GUI.F_BankInfo.txtCuenta.Text("")
+gui.F_BankInfo.txtClabe.Text("")
+Program.Sub.cmdNewBank_Click.End
+
+Program.Sub.cmdDELETE_Click.Start
+V.Local.sSQL.Declare
+V.Local.sBank.Declare
+v.Local.sDesc.Declare
+
+v.Local.sBank.Set(V.Screen.F_BankInfo!txtOpBanco.Text)
+
+
+F.Intrinsic.String.Build("delete FROM GAB_5899_VENDOR WHERE PROVEEDOR = '{0}' AND BANCO = '{1}'",V.Passed.Global,V.Local.sBank,v.Local.sSQL)
+F.ODBC.Connection!conx.Execute(v.Local.sSQL)
+f.Intrinsic.UI.Msgbox("INFROMACION BANCARIA BORRADA")
+
+
+GUI.F_BankInfo.txtNomBanco.Text("")
+gui.F_BankInfo.txtDesc.Text("")
+GUI.F_BankInfo.txtCuenta.Text("")
+gui.F_BankInfo.txtABBA.Text("")
+GUI.F_BankInfo.txtSwift.Text("")
+gui.F_BankInfo.txtClabe.Text("")
+
+Program.Sub.cmdDELETE_Click.End
+
+Program.Sub.cmdSaveInfoBanco_Click.Start
+'GUARDAR INFO BANCARIA
+V.Local.sSQL.Declare
+
+
+'SAVE INFORMATION FROM FORM INTO CUSTOM TABLE GAB_5899_VENDOR
+F.Intrinsic.String.Build("SELECT * FROM GAB_5899_VENDOR WHERE PROVEEDOR = '{0}'",V.Passed.Global.Trim,V.Local.sSQL)
+F.ODBC.Connection!CONX.OpenLocalRecordsetRW("RST",v.Local.sSQL)
+F.Intrinsic.Control.If(v.ODBC.CONX!RST.EOF,=,True)
+	F.ODBC.CONX!RST.AddNew
+	F.ODBC.CONX!RST.Set!PROVEEDOR(V.Passed.Global)
+F.Intrinsic.Control.EndIf
+F.ODBC.CONX!RST.Set!BANCO(V.Screen.F_BankInfo!txtOpBanco.Text)
+F.ODBC.CONX!RST.Set!CUENTA(V.Screen.F_BankInfo!txtCuenta.Text)
+F.ODBC.CONX!RST.Set!CLABE(V.Screen.F_BankInfo!txtClabe.Text)
+F.ODBC.CONX!RST.Update
+F.Intrinsic.UI.Msgbox("INFORMACION BANCARIA GUARDADA")
+F.ODBC.CONX!RST.Close
+
+Program.Sub.cmdSaveInfoBanco_Click.End
+
+Program.Sub.cmdSaveBankPrin_Click.Start
+V.Local.sSQL.Declare(String)
+v.Local.sBANCO.Declare
+V.Local.sBANCOCheck.Declare
+V.Local.sREGISTRO.Declare
+V.Local.sMessage.Declare
+
+v.Local.sBANCO.Set(V.Screen.F_BankInfo!txtOpBanco.Text)
+v.Local.sREGISTRO.Set("P")
+
+F.Intrinsic.String.Build("SELECT COUNT(BANCO) FROM GAB_5899_VENDOR WHERE PROVEEDOR = '{0}' and BANCO = '{1}'",V.Passed.Global,v.Local.sBANCO.Trim,V.Local.sSQL)
+F.ODBC.Connection!conx.ExecuteAndReturn(v.Local.sSQL,V.Local.sBANCOCheck)
+F.Intrinsic.Control.If(V.Local.sBANCOCheck,=,"0")
+	'INSERT
+	F.Intrinsic.String.Build("INSERT INTO GAB_5899_VENDOR(PROVEEDOR,BANCO,CUENTA,CLABE,REGISTRO) VALUES ('{0}','{1}','{2}', '{3}','{4}')",V.Passed.Global.Trim,v.Local.sBANCO,V.Screen.F_BankInfo!txtCuenta.Text,V.Screen.F_BankInfo!txtClabe.Text,v.Local.sREGISTRO,V.Local.sSQL)
+	F.ODBC.Connection!conx.Execute(v.Local.sSQL)
+F.Intrinsic.Control.Else
+	'REMOVE REGISTRO FROM OTHER VENDOR BANKS
+	F.Intrinsic.String.Build("UPDATE GAB_5899_VENDOR SET REGISTRO = '' WHERE PROVEEDOR = '{0}'",V.Passed.Global.Trim,V.Local.sSQL)
+	F.ODBC.Connection!conx.Execute(v.Local.sSQL)
+	'UPDATE	
+	F.Intrinsic.String.Build("UPDATE GAB_5899_VENDOR SET BANCO = '{1}', CUENTA = '{2}', CLABE = '{3}', REGISTRO = 'R'  WHERE PROVEEDOR = '{0}' AND BANCO = '{1}'",V.Passed.Global.Trim,v.Local.sBANCO,V.Screen.F_BankInfo!txtCuenta.Text,V.Screen.F_BankInfo!txtClabe.Text,v.Local.sREGISTRO,V.Local.sSQL)
+	F.ODBC.Connection!conx.Execute(v.Local.sSQL)
+	f.Intrinsic.String.Build("BANCO {0} ha sido guardado como banco principal",v.Local.sBANCO,v.Local.sMessage)
+	F.Intrinsic.UI.Msgbox(V.Local.sMessage)
+F.Intrinsic.Control.EndIf	
+Program.Sub.cmdSaveBankPrin_Click.End
+
+Program.Sub.cmdBancoInfo_Click.Start
+V.Local.BankCheck.Declare
+V.Local.sMessage.Declare
+v.Local.sRet.Declare
+v.Local.sTitles.Declare
+v.Local.iWidths.Declare(long)
+V.Local.sSQL.Declare
+
+f.Intrinsic.String.Build("select COUNT(BANCO) from GAB_5899_VENDOR WHERE PROVEEDOR = '{0}'",V.Passed.Global,V.Local.sSQL)
+F.ODBC.Connection!conx.ExecuteAndReturn(V.Local.sSQL,v.Local.BankCheck)
+
+'BROWSER FROM GAB_5899_VENDOR2 WHERE ALL BANKS ARE SAVED
+f.Intrinsic.Control.If(v.Local.BankCheck,=,"0")
+'IF THERE IS NO DATA SELECT OPTION TO SAVE INFORMATION
+	F.Intrinsic.String.Build("NO EXISTE CUENTA BANCARIA PARA PROOVEDOR {0} FAVOR DE INGRESAR INFORMACION NUEVA Y SELECCIONAR GUARDAR BANCO",V.Passed.Global,v.Local.sMessage)
+	f.Intrinsic.UI.Msgbox(v.Local.sMessage)
+f.Intrinsic.Control.Else
+'FROM A CUSTOM BROWSER GET THE BANK INFORMATION FROM CATALOGS
+
+	F.Intrinsic.String.Split("PROVEEDOR*!*BANCO*!*CUENTA*!*CLABE","*!*",v.local.sTitles)
+	F.Intrinsic.String.Split("500*!*800*!*800*!*800","*!*",v.local.iWidths)
+	F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+	F.Intrinsic.String.Build("select PROVEEDOR,BANCO,CUENTA,CLABE from GAB_5899_VENDOR WHERE PROVEEDOR = '{0}'",V.Passed.Global,V.Local.sSQL)
+	F.Intrinsic.String.Build("Selecciona Bancos Disponibles para Proveedor {0}",V.Passed.Global.Trim,v.Local.sMessage)
+	F.Intrinsic.UI.Browser(v.Local.sMessage,"CONX",V.Local.sSQL,v.Local.sTitles,v.Local.iWidths,v.Local.sRet)
+	F.Intrinsic.Control.If(v.Local.sRet,"=","***CANCEL***")
+	 F.Intrinsic.Control.Else
+	 F.Intrinsic.String.Split(v.Local.sRet,"*!*",v.Local.sRet)
+	 	GUI.F_BankInfo.txtOpBanco.Text(v.Local.sRet(1).Trim)
+		GUI.F_BankInfo.txtCuenta.Text(V.Local.sRet(2).Trim)
+		GUI.F_BankInfo.txtClabe.Text(V.Local.sRet(3).Trim)
+	F.Intrinsic.Control.EndIf
+f.Intrinsic.Control.EndIf
+Program.Sub.cmdBancoInfo_Click.End
+
+Program.Sub.F_BankInfo_Load.Start
+V.Local.sSQL.Declare
+
+'Load Existing Data into Form searching from custom table GAB_5899_VENDOR
+F.Intrinsic.String.Build("select * from GAB_5899_VENDOR WHERE PROVEEDOR ='{0}' AND REGISTRO ='P'",V.Passed.Global,V.Local.sSQL)
+F.ODBC.Connection!conx.OpenRecordsetRO("rstLoad",V.Local.sSql)
+F.Intrinsic.Control.If(V.ODBC.conx!rstLoad.EOF,=,"False")
+	F.Intrinsic.Control.If(V.ODBC.conx!rstLoad.FieldValTrim!CUSTOMER,=,"")
+		Gui.F_BankInfo.txtOpBanco.Value(1)
+		Gui.F_BankInfo.txtCuenta.Value(2)
+		Gui.F_BankInfo.txtClabe.Value(3)
+	F.Intrinsic.Control.EndIf
+	GUI.F_BankInfo.txtOpBanco.Text(v.ODBC.conx!rstLoad.FieldValTrim!BANCO)
+	Gui.F_BankInfo.txtCuenta.Text(V.ODBC.conx!rstLoad.FieldValTrim!CUENTA)
+	Gui.F_BankInfo.txtClabe.Text(V.ODBC.conx!rstLoad.FieldValTrim!CLABE)
+	Gui.F_BankInfo.cmdOpBanco.Enabled(True)
+F.Intrinsic.Control.EndIf
+Gui.F_BankInfo..Show
+Program.Sub.F_BankInfo_Load.End
+
+Program.Sub.cmdPrintReport_Click.Start
+V.Local.sPrinter.Declare
+V.Local.sParams.Declare
+V.Local.sValues.Declare
+
+f.Intrinsic.Control.If(v.Screen.F_Transferencias!txtMonto.Text,=,"")
+	F.Intrinsic.UI.Msgbox("Monto no Ingresado, favor de ingresar el Monto y Volver a Guardar")
+F.Intrinsic.Control.ElseIf(V.Screen.F_Transferencias!chkPagoProv.Value,=,0,"AND",V.Screen.F_Transferencias!chkTransEntreCuenta.Value,=,0)
+	f.Intrinsic.UI.Msgbox("Favor de seleccionar una opcion de transferencia: Pago a Proveedor o Transferencia Entre Cuenta")
+
+f.Intrinsic.Control.Else
+
+	F.Intrinsic.Printer.SelectPrinterDialog
+	V.Local.sPrinter.Set(V.Printer.DeviceName)
+	
+	V.Local.sParams.Set("GL_BATCH")
+	
+	V.Local.sValues.Set(V.Screen.F_Transferencias!txtBatch.Text)
+	
+	'F.Intrinsic.String.Split(V.Local.sParams,"*!*",V.Local.sParams)
+	'F.Intrinsic.String.Split(V.Local.sValues,"*!*",V.Local.sValues)
+	
+	F.Global.BI.PrintReport("100005",0,V.Local.sParams,V.Local.sValues,V.Local.sPrinter,True)
+
+F.Intrinsic.Control.EndIf
+
+Program.Sub.cmdPrintReport_Click.End
+
+Program.Sub.cmdPrintCheck_Click.Start
+V.Local.sPrinter.Declare
+V.Local.sParams.Declare
+V.Local.sValues.Declare
+
+f.Intrinsic.Control.If(v.Screen.F_Transferencias!txtMonto.Text,=,"")
+	F.Intrinsic.UI.Msgbox("Monto no Ingresado, favor de ingresar el Monto y Volver a Guardar")
+F.Intrinsic.Control.ElseIf(V.Screen.F_Transferencias!chkPagoProv.Value,=,0,"AND",V.Screen.F_Transferencias!chkTransEntreCuenta.Value,=,0)
+	f.Intrinsic.UI.Msgbox("Favor de seleccionar una opcion de transferencia: Pago a Proveedor o Transferencia Entre Cuenta")
+
+f.Intrinsic.Control.Else	
+	F.Intrinsic.Printer.SelectPrinterDialog
+	V.Local.sPrinter.Set(V.Printer.DeviceName)
+	
+	V.Local.sParams.Set("GL_BATCH")
+	
+	V.Local.sValues.Set(V.Screen.F_Transferencias!txtBatch.Text)
+	
+	'F.Intrinsic.String.Split(V.Local.sParams,"*!*",V.Local.sParams)
+	'F.Intrinsic.String.Split(V.Local.sValues,"*!*",V.Local.sValues)
+	
+	F.Global.BI.PrintReport("100005",0,V.Local.sParams,V.Local.sValues,V.Local.sPrinter,True)
+
+F.Intrinsic.Control.EndIf
+Program.Sub.cmdPrintCheck_Click.End
+
+Program.Sub.chkCheck_Click.Start
+v.Local.lCheck.Declare
+
+
+F.Intrinsic.Control.If(V.Screen.F_Transferencias!chkCheck.Value,=,1)
+	'Make CONSECUTIVO Visible
+	gui.F_Transferencias.lblCheque.Visible(True)
+	gui.F_Transferencias.txtCheque.Visible(True)
+	F.ODBC.Connection!conx.ExecuteAndReturn("select CHECK_NUM from GAB_5899_CHECK",v.Local.lCheck)
+	f.Intrinsic.Math.Add(v.Local.lCheck,1,v.Local.lCheck)
+	gui.F_Transferencias.txtCheque.Text(v.Local.lCheck)
+f.Intrinsic.Control.Else
+	gui.F_Transferencias.lblCheque.Visible(False)
+	gui.F_Transferencias.txtCheque.Visible(False)
+F.Intrinsic.Control.EndIf
+
+Program.Sub.chkCheck_Click.End
